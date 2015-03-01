@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pFz-W3-ih5">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Example-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXU-Z3-9Uj">
+                                <rect key="frame" x="240" y="96" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="b2R-4N-IbQ"/>
+                                    <constraint firstAttribute="width" constant="120" id="jiV-DE-IcD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Default" backgroundImage="ButtonBackground">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchDefault:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BBr-r3-8NT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1pF-rs-8xk">
+                                <rect key="frame" x="240" y="172" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="hex-1r-dzJ"/>
+                                    <constraint firstAttribute="height" constant="44" id="ibF-Jj-XtA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Custom 1" backgroundImage="ButtonBackground">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCustom1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n9f-87-gFz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-MH-nat">
+                                <rect key="frame" x="240" y="248" width="120" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="RtI-Ml-Pon"/>
+                                    <constraint firstAttribute="height" constant="44" id="gQW-Jc-bir"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Custom 2" backgroundImage="ButtonBackground">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchCustom2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k9n-jR-jnH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1pF-rs-8xk" secondAttribute="centerX" id="0WO-al-4fg"/>
+                            <constraint firstItem="cXU-Z3-9Uj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="LJ5-CA-I0y"/>
+                            <constraint firstItem="cXU-Z3-9Uj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="SlW-cT-1On"/>
+                            <constraint firstAttribute="centerX" secondItem="cXU-Z3-9Uj" secondAttribute="centerX" id="Sz9-QX-cTE"/>
+                            <constraint firstItem="lbn-MH-nat" firstAttribute="top" secondItem="1pF-rs-8xk" secondAttribute="bottom" constant="32" id="rAr-aP-HDU"/>
+                            <constraint firstAttribute="centerX" secondItem="lbn-MH-nat" secondAttribute="centerX" id="vX4-KS-YVV"/>
+                            <constraint firstItem="1pF-rs-8xk" firstAttribute="top" secondItem="cXU-Z3-9Uj" secondAttribute="bottom" constant="32" id="zfb-bT-Cix"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SlW-cT-1On"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Example" id="bwT-2q-5cW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3001" y="398"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jx1-lt-Eb8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pFz-W3-ih5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nsz-2X-8WP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OnH-71-jst"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ZX-Yv-GDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2189" y="398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ButtonBackground" width="5" height="9"/>
+    </resources>
+</document>
