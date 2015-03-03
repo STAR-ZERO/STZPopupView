@@ -1,6 +1,6 @@
 # STZPopupView
 
-[![Version](https://img.shields.io/cocoapods/v/STZPopupView.svg?style=flat)](http://cocoadocs.org/docsets/STZPopupView)
+[![Version](https://img.shields.io/cocoapods/v/STZPopupView.svg?style=flat)](http://cocoadocs.org/docsets/STZPopupView) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/STAR-ZERO/STZPopupView)
 
 Customizable simple popup view in iOS. Implemented as an extension of UIViewController.
 
