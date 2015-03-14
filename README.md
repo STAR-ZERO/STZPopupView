@@ -58,11 +58,18 @@ Customize option see [Source/STZPopupViewConfig.swift](https://github.com/STAR-Z
 STZPopupView is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-    pod "STZPopupView"
 
-Note: need install cocoapods pre-release version, and iOS deployment target >= 8.0
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
 
-	[sudo] gem install cocoapods --pre
+pod 'STZPopupView'
+```
+
+Note: need install cocoapods >= 0.36, and iOS deployment target >= 8.0
+
+	[sudo] gem install cocoapods
 
 ### Carthage
 
