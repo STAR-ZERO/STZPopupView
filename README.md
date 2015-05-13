@@ -48,8 +48,8 @@ Customize option see [Source/STZPopupViewConfig.swift](https://github.com/STAR-Z
 
 ## Requirements
 
-* iOS 7.0+
-* Xcode 6.1
+* iOS 8.0+
+* Xcode 6.3.1+
 
 ## Installation
 
