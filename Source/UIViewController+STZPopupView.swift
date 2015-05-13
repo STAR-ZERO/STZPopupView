@@ -82,7 +82,7 @@ extension UIViewController {
         let dismissButton = UIButton(frame: targetView.bounds)
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
-            dismissButton.addTarget(self, action: Selector("dismissPopup"), forControlEvents: UIControlEvents.TouchUpInside)
+            dismissButton.addTarget(self, action: Selector("dismissPopupView"), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         popupView.center = CGPointMake(targetView.frame.size.width / 2, targetView.frame.size.height / 2)
