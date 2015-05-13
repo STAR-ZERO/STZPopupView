@@ -114,7 +114,7 @@ extension UIViewController {
             case .SlideInFromRight:
                 slideInFromRight()
             case .Custom:
-                if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+                if let containerView = containerView, let popupView = popupView {
                     config.showCustomAnimation(containerView, popupView, { self.completionShowAnimation(true) })
                 }
             }
@@ -122,7 +122,7 @@ extension UIViewController {
     }
 
     private func completionShowAnimation(finished: Bool) {
-        if let (completion, popupView) = unwrapA(config?.showCompletion, b: popupView) {
+        if let completion = config?.showCompletion, let popupView = popupView {
             completion(popupView)
         }
     }
@@ -137,7 +137,7 @@ extension UIViewController {
     }
 
     private func completionDismissAnimation(finished: Bool) {
-        if let (completion, popupView) = unwrapA(config?.dismissCompletion, b: popupView) {
+        if let completion = config?.dismissCompletion, let popupView =  popupView {
             completion(popupView)
         }
 
@@ -163,7 +163,7 @@ extension UIViewController {
             case .SlideOutToRight:
                 slideOutToRight()
             case .Custom:
-                if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+                if let containerView = containerView, let popupView = popupView {
                     config.dismissCustomAnimation(containerView, popupView, { self.completionDismissAnimation(true) })
                 }
             }
@@ -182,7 +182,7 @@ extension UIViewController {
     }
 
     private func slideInFromTop() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
             frame.origin.y = -CGRectGetHeight(frame)
@@ -195,7 +195,7 @@ extension UIViewController {
     }
 
     private func slideInFromBottom() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
             frame.origin.y = CGRectGetHeight(containerView.frame)
@@ -208,7 +208,7 @@ extension UIViewController {
     }
 
     private func slideInFromLeft() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
             frame.origin.x = -CGRectGetWidth(frame)
@@ -221,7 +221,7 @@ extension UIViewController {
     }
 
     private func slideInFromRight() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
 
             var frame = popupView.frame
             frame.origin.x = CGRectGetWidth(containerView.frame)
@@ -244,7 +244,7 @@ extension UIViewController {
     }
 
     private func slideOutToTop() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.y = -CGRectGetHeight(frame)
@@ -254,7 +254,7 @@ extension UIViewController {
     }
 
     private func slideOutToBottom() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.y = CGRectGetHeight(containerView.frame)
@@ -264,7 +264,7 @@ extension UIViewController {
     }
 
     private func slideOutToLeft() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.x = -CGRectGetWidth(frame)
@@ -274,7 +274,7 @@ extension UIViewController {
     }
 
     private func slideOutToRight() {
-        if let (containerView, popupView) = unwrapA(containerView, b: popupView) {
+        if let containerView = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.x = CGRectGetWidth(containerView.frame)
@@ -283,22 +283,4 @@ extension UIViewController {
         }
     }
 
-    // MARK: - Utility method
-
-    /**
-    Unwrap multi optional value (Delete when Swift1.2 is released)
-
-    :param: a Optional value1
-    :param: b Optional value2
-
-    :returns: return unwrap tuple or nil
-    */
-    private func unwrapA<T1, T2>(a: T1?, b: T2?) -> (T1, T2)? {
-        switch (a, b) {
-        case let (.Some(a), .Some(b)):
-            return (a, b)
-        default:
-            return nil
-        }
-    }
 }

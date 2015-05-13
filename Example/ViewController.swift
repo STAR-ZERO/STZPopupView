@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         popupView.backgroundColor = UIColor.whiteColor()
 
         // Close button
-        let button = UIButton.buttonWithType(.System) as UIButton
+        let button = UIButton.buttonWithType(.System) as! UIButton
         button.frame = CGRectMake(60, 60, 80, 40)
         button.setTitle("Close", forState: UIControlState.Normal)
         button.addTarget(self, action: "touchClose", forControlEvents: UIControlEvents.TouchUpInside)
