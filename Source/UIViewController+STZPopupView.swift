@@ -35,7 +35,7 @@ extension UIViewController {
             return objc_getAssociatedObject(self, &containerViewAssociationKey) as? UIView
         }
         set {
-            objc_setAssociatedObject(self, &containerViewAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &containerViewAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -45,7 +45,7 @@ extension UIViewController {
             return objc_getAssociatedObject(self, &popupViewAssociationKey) as? UIView
         }
         set {
-            objc_setAssociatedObject(self, &popupViewAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &popupViewAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -55,7 +55,7 @@ extension UIViewController {
             return objc_getAssociatedObject(self, &configAssociationKey) as? STZPopupViewConfig
         }
         set {
-            objc_setAssociatedObject(self, &configAssociationKey, newValue, objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &configAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 
