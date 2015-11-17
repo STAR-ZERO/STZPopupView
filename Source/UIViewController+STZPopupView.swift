@@ -64,8 +64,8 @@ extension UIViewController {
     /**
     Show popup
 
-    :param: popupView Popup view
-    :param: config    Config (Option)
+    - parameter popupView: Popup view
+    - parameter config:    Config (Option)
     */
     public func presentPopupView(popupView: UIView, config: STZPopupViewConfig = STZPopupViewConfig()) {
 
@@ -244,7 +244,7 @@ extension UIViewController {
     }
 
     private func slideOutToTop() {
-        if let containerView = containerView, let popupView = popupView {
+        if let _ = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.y = -CGRectGetHeight(frame)
@@ -264,7 +264,7 @@ extension UIViewController {
     }
 
     private func slideOutToLeft() {
-        if let containerView = containerView, let popupView = popupView {
+        if let _ = containerView, let popupView = popupView {
             UIView.animateWithDuration(0.3, animations: {
                 var frame = popupView.frame
                 frame.origin.x = -CGRectGetWidth(frame)

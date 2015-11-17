@@ -39,10 +39,10 @@ class ViewController: UIViewController {
         popupConfig.showAnimation = .SlideInFromTop
         popupConfig.dismissAnimation = .SlideOutToBottom
         popupConfig.showCompletion = { popupView in
-            println("show")
+            print("show")
         }
         popupConfig.dismissCompletion = { popupView in
-            println("dismiss")
+            print("dismiss")
         }
 
         presentPopupView(popupView, config: popupConfig)
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         popupView.backgroundColor = UIColor.whiteColor()
 
         // Close button
-        let button = UIButton.buttonWithType(.System) as! UIButton
+        let button = UIButton(type: .System)
         button.frame = CGRectMake(60, 60, 80, 40)
         button.setTitle("Close", forState: UIControlState.Normal)
         button.addTarget(self, action: "touchClose", forControlEvents: UIControlEvents.TouchUpInside)
