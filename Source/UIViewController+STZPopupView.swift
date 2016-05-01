@@ -16,6 +16,7 @@ private var configAssociationKey: UInt8 = 0
 /**
 *  UIViewController + STZPopupView
 */
+
 extension UIViewController {
     
     // MARK: - Property
@@ -67,29 +68,29 @@ extension UIViewController {
     - parameter popupView: Popup view
     - parameter config:    Config (Option)
     */
-    public func presentPopupView(popupView: UIView, config: STZPopupViewConfig = STZPopupViewConfig()) {
+    public func presentPopupView(popupView: UIView, inView: UIView, config: STZPopupViewConfig = STZPopupViewConfig()) {
 
         if self.containerView != nil {
             return
         }
         
-        let containerView = UIView(frame: targetView.bounds)
+        let containerView = UIView(frame: inView.bounds)
         
-        let overlayView = UIView(frame: targetView.bounds)
+        let overlayView = UIView(frame: inView.bounds)
         overlayView.backgroundColor = config.overlayColor
         containerView.addSubview(overlayView)
         
-        let dismissButton = UIButton(frame: targetView.bounds)
+        let dismissButton = UIButton(frame: inView.bounds)
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
             dismissButton.addTarget(self, action: Selector("dismissPopupView"), forControlEvents: UIControlEvents.TouchUpInside)
         }
         
-        popupView.center = CGPointMake(targetView.frame.size.width / 2, targetView.frame.size.height / 2)
+        popupView.center = CGPointMake(inView.frame.size.width / 2, inView.frame.size.height / 2)
         popupView.layer.cornerRadius = config.cornerRadius
         containerView.addSubview(popupView)
         
-        targetView.addSubview(containerView)
+        inView.addSubview(containerView)
         
         self.containerView = containerView
         self.popupView = popupView
