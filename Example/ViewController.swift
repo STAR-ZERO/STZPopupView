@@ -21,14 +21,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func touchDefault(sender: AnyObject) {
+    @IBAction func touchDefault(_ sender: AnyObject) {
 
         let popupView = createPopupview()
 
         presentPopupView(popupView)
     }
 
-    @IBAction func touchCustom1(sender: AnyObject) {
+    @IBAction func touchCustom1(_ sender: AnyObject) {
 
         let popupView = createPopupview()
 
@@ -36,8 +36,8 @@ class ViewController: UIViewController {
         popupConfig.dismissTouchBackground = false
         popupConfig.cornerRadius = 10
         popupConfig.overlayColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
-        popupConfig.showAnimation = .SlideInFromTop
-        popupConfig.dismissAnimation = .SlideOutToBottom
+        popupConfig.showAnimation = .slideInFromTop
+        popupConfig.dismissAnimation = .slideOutToBottom
         popupConfig.showCompletion = { popupView in
             print("show")
         }
@@ -48,24 +48,25 @@ class ViewController: UIViewController {
         presentPopupView(popupView, config: popupConfig)
     }
 
-    @IBAction func touchCustom2(sender: AnyObject) {
+    @IBAction func touchCustom2(_ sender: AnyObject) {
 
         let popupView = createPopupview()
 
         let popupConfig = STZPopupViewConfig()
 
         // Custom animation
-        popupConfig.showAnimation = .Custom
-        popupConfig.dismissAnimation = .Custom
+        popupConfig.showAnimation = .custom
+        popupConfig.dismissAnimation = .custom
+        
         popupConfig.showCustomAnimation = { containerView, popupView, completion in
 
             // initial position
             var frame = popupView.frame
-            frame.origin.x = -CGRectGetWidth(frame)
-            frame.origin.y = -CGRectGetHeight(frame)
+            frame.origin.x = -frame.width
+            frame.origin.y = -frame.height
             popupView.frame = frame
 
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 // final position
                 popupView.center = containerView.center
 
@@ -77,11 +78,11 @@ class ViewController: UIViewController {
         }
         popupConfig.dismissCustomAnimation = { containerView, popupView, completion in
 
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
 
                 var frame = popupView.frame
-                frame.origin.x = CGRectGetWidth(containerView.frame)
-                frame.origin.y = CGRectGetHeight(containerView.frame)
+                frame.origin.x = containerView.frame.width
+                frame.origin.y = containerView.frame.height
                 popupView.frame = frame
 
             }, completion: { finished in
@@ -96,14 +97,14 @@ class ViewController: UIViewController {
 
     func createPopupview() -> UIView {
 
-        let popupView = UIView(frame: CGRectMake(0, 0, 200, 160))
-        popupView.backgroundColor = UIColor.whiteColor()
+        let popupView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 160))
+        popupView.backgroundColor = UIColor.white
 
         // Close button
-        let button = UIButton(type: .System)
-        button.frame = CGRectMake(60, 60, 80, 40)
-        button.setTitle("Close", forState: UIControlState.Normal)
-        button.addTarget(self, action: "touchClose", forControlEvents: UIControlEvents.TouchUpInside)
+        let button = UIButton(type: .system)
+        button.frame = CGRect(x: 60, y: 60, width: 80, height: 40)
+        button.setTitle("Close", for: UIControlState())
+        button.addTarget(self, action: #selector(ViewController.touchClose), for: UIControlEvents.touchUpInside)
         popupView.addSubview(button)
 
         return popupView
