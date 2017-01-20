@@ -81,6 +81,7 @@ extension UIViewController {
         containerView.addSubview(overlayView)
         
         let dismissButton = UIButton(frame: targetView.bounds)
+        dismissButton.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
             dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControlEvents.touchUpInside)
