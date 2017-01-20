@@ -74,18 +74,24 @@ extension UIViewController {
         }
         
         let containerView = UIView(frame: targetView.bounds)
-        
+        containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         let overlayView = UIView(frame: targetView.bounds)
+        overlayView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         overlayView.backgroundColor = config.overlayColor
         containerView.addSubview(overlayView)
         
         let dismissButton = UIButton(frame: targetView.bounds)
+        dismissButton.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
             dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControlEvents.touchUpInside)
         }
         
-        popupView.center = CGPoint(x: targetView.frame.size.width / 2, y: targetView.frame.size.height / 2)
+        popupView.center = CGPoint(x: targetView.bounds.midX, y: targetView.bounds.midY)
+        popupView.autoresizingMask = [.flexibleLeftMargin,
+                                      .flexibleTopMargin,
+                                      .flexibleRightMargin,
+                                      .flexibleBottomMargin]
         popupView.layer.cornerRadius = config.cornerRadius
         containerView.addSubview(popupView)
         
