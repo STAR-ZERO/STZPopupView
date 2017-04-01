@@ -95,6 +95,17 @@ class ViewController: UIViewController {
         presentPopupView(popupView, config: popupConfig)
     }
 
+    @IBAction func touchCustom3(_ sender: Any) {
+        
+        let popupView = createPopupview()
+        
+        let popupConfig = STZPopupViewConfig()
+        
+        popupConfig.blurEffectStyle = .light
+        
+        presentPopupView(popupView, config: popupConfig)
+    }
+
     func createPopupview() -> UIView {
 
         let popupView = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 160))

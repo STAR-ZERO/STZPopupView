@@ -72,21 +72,29 @@ extension UIViewController {
         if self.containerView != nil {
             return
         }
-        
+
         let containerView = UIView(frame: targetView.bounds)
         containerView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         let overlayView = UIView(frame: targetView.bounds)
         overlayView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         overlayView.backgroundColor = config.overlayColor
         containerView.addSubview(overlayView)
-        
+
+        // blur effect
+        if let blurStyle = config.blurEffectStyle {
+            let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: blurStyle))
+            blurEffectView.frame = containerView.frame;
+            blurEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            containerView.addSubview(blurEffectView)
+        }
+
         let dismissButton = UIButton(frame: targetView.bounds)
         dismissButton.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
             dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControlEvents.touchUpInside)
         }
-        
+
         popupView.center = CGPoint(x: targetView.bounds.midX, y: targetView.bounds.midY)
         popupView.autoresizingMask = [.flexibleLeftMargin,
                                       .flexibleTopMargin,
@@ -94,7 +102,7 @@ extension UIViewController {
                                       .flexibleBottomMargin]
         popupView.layer.cornerRadius = config.cornerRadius
         containerView.addSubview(popupView)
-        
+
         targetView.addSubview(containerView)
         
         self.containerView = containerView
@@ -179,10 +187,10 @@ extension UIViewController {
     // MARK: - Show Animation
     
     private func fadeIn() {
-        if let containerView = containerView {
-            containerView.alpha = 0
+        if let popupView = popupView {
+            popupView.alpha = 0
             UIView.animate(withDuration: 0.2, animations: {
-                containerView.alpha = 1
+                popupView.alpha = 1
             }, completion: completionShowAnimation)
         }
     }
