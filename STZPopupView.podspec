@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "STZPopupView"
-  s.version          = "1.1.1"
+  s.version          = "1.2.0"
   s.summary          = "Customizable simple popup view in iOS."
   s.homepage         = "https://github.com/STAR-ZERO/STZPopupView"
   s.license          = 'MIT'
