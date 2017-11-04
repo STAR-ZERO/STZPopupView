@@ -121,6 +121,7 @@ class ViewController: UIViewController {
         return popupView
     }
 
+    @objc
     func touchClose() {
         dismissPopupView()
     }

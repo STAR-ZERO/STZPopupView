@@ -146,6 +146,7 @@ extension UIViewController {
     /**
     Dismiss popup
     */
+    @objc
     public func dismissPopupView() {
         dismissAnimation()
     }
