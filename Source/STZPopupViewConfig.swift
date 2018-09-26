@@ -49,7 +49,7 @@ open class STZPopupViewConfig {
     open var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 
     /// Background blur effect
-    open var blurEffectStyle: UIBlurEffectStyle? = nil
+    open var blurEffectStyle: UIBlurEffect.Style? = nil
 
     /// Show animation type.
     open var showAnimation = STZPopupShowAnimation.fadeIn
