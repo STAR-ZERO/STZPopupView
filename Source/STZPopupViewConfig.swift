@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-Show Animation type
-*/
+ Show Animation type
+ */
 public enum STZPopupShowAnimation {
     case none
     case fadeIn
@@ -22,8 +22,8 @@ public enum STZPopupShowAnimation {
 }
 
 /**
-Dismiss Animation
-*/
+ Dismiss Animation
+ */
 public enum STZPopupDismissAnimation {
     case none
     case fadeOut
@@ -35,36 +35,36 @@ public enum STZPopupDismissAnimation {
 }
 
 /**
-*  Popup Config
-*/
+ *  Popup Config
+ */
 open class STZPopupViewConfig {
-
+    
     /// Dismiss touch the Background if ture.
     open var dismissTouchBackground = true
-
+    
     /// Popup corner radius value.
     open var cornerRadius: CGFloat = 0
-
+    
     /// Background overlay color.
     open var overlayColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
-
+    
     /// Background blur effect
-    open var blurEffectStyle: UIBlurEffectStyle? = nil
-
+    open var blurEffectStyle: UIBlurEffect.Style? = nil
+    
     /// Show animation type.
     open var showAnimation = STZPopupShowAnimation.fadeIn
-
+    
     /// Dismiss animation type.
     open var dismissAnimation = STZPopupDismissAnimation.fadeOut
-
+    
     /// Clouser show animation is completed.
     /// Pass the popup view to argument.
     open var showCompletion: ((UIView) -> Void)? = nil
-
+    
     /// Clouser disimss animation is completed.
     /// Pass the popup view to argument.
     open var dismissCompletion: ((UIView) -> Void)? = nil
-
+    
     /// Show custom animation of closure.
     ///
     /// Set STZPopupShowAnimation.Custom to 'showAnimation' property to use custom animation.
@@ -75,7 +75,7 @@ open class STZPopupViewConfig {
     /// - popupView: A popup view is displayed.
     /// - completion: Be sure to call after animation completion.
     open var showCustomAnimation: (UIView, UIView, @escaping () -> Void) -> Void = { containerView, popupView, completion in }
-
+    
     /// Dismiss custom animation of closure.
     ///
     /// Set STZPopupShowAnimation.Custom to 'dismissAnimation' property to use custom animation.
@@ -86,6 +86,6 @@ open class STZPopupViewConfig {
     /// - popupView: A popup view is displayed.
     /// - completion: Be sure to call after animation completion.
     open var dismissCustomAnimation: (UIView, UIView, @escaping () -> Void) -> Void = { containerView, popupView, completion in }
-
+    
     public init() {}
 }
