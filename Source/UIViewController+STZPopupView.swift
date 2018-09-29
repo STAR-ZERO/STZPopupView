@@ -92,7 +92,7 @@ extension UIViewController {
         dismissButton.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         containerView.addSubview(dismissButton)
         if config.dismissTouchBackground {
-            dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControlEvents.touchUpInside)
+            dismissButton.addTarget(self, action: #selector(dismissPopupView), for: UIControl.Event.touchUpInside)
         }
 
         popupView.center = CGPoint(x: targetView.bounds.midX, y: targetView.bounds.midY)
