@@ -114,8 +114,8 @@ class ViewController: UIViewController {
         // Close button
         let button = UIButton(type: .system)
         button.frame = CGRect(x: 60, y: 60, width: 80, height: 40)
-        button.setTitle("Close", for: UIControlState())
-        button.addTarget(self, action: #selector(touchClose), for: UIControlEvents.touchUpInside)
+        button.setTitle("Close", for: UIControl.State())
+        button.addTarget(self, action: #selector(touchClose), for: UIControl.Event.touchUpInside)
         popupView.addSubview(button)
 
         return popupView
